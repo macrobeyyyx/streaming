@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekran Paylaşım Platformu</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Modal -->
+    <div id="responsibilityModal" class="modal">
+        <div class="modal-content">
+            <h2>UYARI!</h2>
+            <p>
+                Bu platformda yapılan yayınlar tamamen yayın yapan kişiye aittir. 
+                Platform, yayınların içeriğiyle ilgili hiçbir sorumluluk kabul etmez. 
+                Devam etmek için lütfen aşağıdaki butona tıklayın.
+            </p>
+            <button id="acceptResponsibility">Kabul Ediyorum</button>
+        </div>
+    </div>
+
+    <!-- Ana İçerik -->
+    <div class="container">
+        <h1>Ekran Paylaşım Platformu</h1>
+        <button id="startBroadcast">Yayın Başlat</button>
+        <p id="inviteLink" style="display: none;">
+            Davet Linki: <span id="link"></span>
+        </p>
+    </div>
+
+    <!-- İmza -->
+    <footer class="footer">
+        <p>Tasarlayan: <strong>Adınız Soyadınız</strong></p>
+    </footer>
+
+    <script type="module" src="/js/script.js"></script>
+</body>
+</html>
