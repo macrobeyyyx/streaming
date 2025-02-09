@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ekran paylaşım platformu ile kolayca yayın yapabilir ve diğer kullanıcılarla paylaşabilirsiniz.">
+    <meta name="keywords" content="ekran paylaşımı, canlı yayın, video paylaşım, webRTC">
+    <meta name="author" content="Adınız Soyadınız">
+    <meta property="og:title" content="Ekran Paylaşım Platformu">
+    <meta property="og:description" content="Kolayca yayın yapın ve diğer kullanıcılarla paylaşın.">
+    <meta property="og:image" content="https://ornek.com/logo.png">
+    <meta property="og:url" content="https://ornek.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Ekran Paylaşım Platformu</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Özel CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+        <div class="text-center">
+            <h1 class="mb-4">Ekran Paylaşım Platformu</h1>
+            <button id="startBroadcast" class="btn btn-custom btn-lg">
+                <i class="fas fa-video me-2"></i> Yayın Başlat
+            </button>
+            <p id="inviteLink" class="mt-4" style="display: none;">
+                <strong>Davet Linki:</strong> <span id="link" class="text-primary"></span>
+            </p>
+            <div id="loading" class="spinner-border text-primary mt-3" role="status" style="display: none;">
+                <span class="visually-hidden">Yükleniyor...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- İmza -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2023 Ekran Paylaşım Platformu | <strong>Tasarlayan:</strong> Adınız Soyadınız</p>
+        </div>
+    </footer>
+
+    <!-- Socket.IO CDN -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Özel JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

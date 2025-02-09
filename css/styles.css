@@ -1,0 +1,58 @@
+/* Genel Stiller */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    height: 100vh;
+}
+
+.text-center {
+    color: white;
+}
+
+.btn-custom {
+    background-color: #ffffff;
+    color: #6a11cb;
+    border: 2px solid #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+}
+
+#inviteLink {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#inviteLink.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #6a11cb;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Yükleme Animasyonu */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
