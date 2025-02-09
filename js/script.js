@@ -1,3 +1,15 @@
+
+// Modal ve kabul butonunu seç
+const responsibilityModal = document.getElementById('responsibilityModal');
+const acceptButton = document.getElementById('acceptResponsibility');
+
+// Modal'ı göster
+responsibilityModal.style.display = 'flex';
+
+// Kullanıcı kabul ettiğinde modal'ı gizle
+acceptButton.addEventListener('click', () => {
+    responsibilityModal.style.display = 'none';
+});
 // Socket.IO bağlantısı
 const socketScript = document.createElement('script');
 socketScript.src = 'https://cdn.socket.io/4.5.4/socket.io.min.js';
