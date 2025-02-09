@@ -3,37 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ekran Paylaşım Platformu</title>
+    <title>Ekran Paylaşımı</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Modal -->
-    <div id="responsibilityModal" class="modal">
-        <div class="modal-content">
-            <h2>UYARI!</h2>
-            <p>
-                Bu platformda yapılan yayınlar tamamen yayın yapan kişiye aittir. 
-                Platform, yayınların içeriğiyle ilgili hiçbir sorumluluk kabul etmez. 
-                Devam etmek için lütfen aşağıdaki butona tıklayın.
-            </p>
-            <button id="acceptResponsibility">Kabul Ediyorum</button>
+    <div class="disclaimer-modal" id="disclaimerModal">
+        <div class="disclaimer-content">
+            <div class="disclaimer-title">Kullanım Koşulları ve Sorumluluk Reddi Beyanı</div>
+            <div class="disclaimer-text">
+                <p><strong>Önemli: Lütfen bu hizmeti kullanmadan önce aşağıdaki koşulları dikkatlice okuyunuz.</strong></p>
+                
+                <p>1. Bu ekran paylaşım hizmeti ("Hizmet"), yalnızca yasal amaçlar için kullanılmalıdır. Kullanıcılar, paylaştıkları içeriğin tüm sorumluluğunu üstlenir.</p>
+                
+                <p>2. Hizmet Kullanımında Yasaklar:</p>
+                <ul>
+                    <li>Telif hakkı ihlali içeren materyaller</li>
+                    <li>Zararlı, tehditkar veya yasadışı içerik</li>
+                    <li>Kişisel veya gizli bilgilerin izinsiz paylaşımı</li>
+                    <li>Başkalarının gizlilik haklarını ihlal eden içerikler</li>
+                </ul>
+                
+                <p>3. Gizlilik ve Güvenlik:</p>
+                <ul>
+                    <li>İletişim şifrelenmemiş olabilir</li>
+                    <li>Hassas bilgilerin paylaşılmaması önerilir</li>
+                    <li>Tüm kullanıcılar kendi güvenliklerinden sorumludur</li>
+                </ul>
+                
+                <p>4. Sorumluluk Reddi:</p>
+                <ul>
+                    <li>Hizmet "olduğu gibi" sunulmaktadır</li>
+                    <li>Kesintisiz veya hatasız çalışma garantisi verilmemektedir</li>
+                    <li>Veri kaybı veya zarardan sorumlu olunmamaktadır</li>
+                    <li>Kullanıcılar arası anlaşmazlıklardan sorumlu değiliz</li>
+                </ul>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="disclaimerCheckbox">
+                <label for="disclaimerCheckbox">Kullanım koşullarını ve sorumluluk reddini okudum ve kabul ediyorum</label>
+            </div>
+            <div class="disclaimer-buttons">
+                <button class="accept-button" id="acceptDisclaimer" disabled>Kabul Et ve Devam Et</button>
+                <button class="reject-button" id="rejectDisclaimer">Reddet</button>
+            </div>
         </div>
     </div>
 
-    <!-- Ana İçerik -->
+    <div class="notification" id="notification"></div>
     <div class="container">
-        <h1>Ekran Paylaşım Platformu</h1>
-        <button id="startBroadcast">Yayın Başlat</button>
-        <p id="inviteLink" style="display: none;">
-            Davet Linki: <span id="link"></span>
-        </p>
+        <div class="user-info" id="userInfo"></div>
+        <h1>Ekran Paylaşımı</h1>
+        <div class="video-container" id="videoContainer">
+            <div class="video-message">Ekran paylaşımı başlatmak için aşağıdaki butona tıklayın</div>
+            <div class="video-overlay" id="viewerCount"></div>
+        </div>
+        <div class="controls">
+            <button id="startButton">Ekran Paylaşımını Başlat</button>
+            <button id="stopButton" disabled>Paylaşımı Durdur</button>
+            <button id="createRoomButton">Yeni Oda Oluştur</button>
+        </div>
+        <p id="status">Durum: Beklemede</p>
+
+        <div class="invite-section">
+            <h3>Davet Bağlantısı</h3>
+            <div class="invite-link">
+                <input type="text" id="inviteLink" readonly />
+                <button onclick="copyInviteLink()">Kopyala</button>
+            </div>
+            <div class="viewers">
+                <h4>İzleyenler (<span id="viewersCount">0</span>)</h4>
+                <ul class="viewers-list" id="viewersList"></ul>
+            </div>
+        </div>
+
+        <div class="signature">
+            Developed by Mert "Macro" Demir - 2025
+        </div>
     </div>
 
-    <!-- İmza -->
-    <footer class="footer">
-        <p>Tasarlayan: <strong>Adınız Soyadınız</strong></p>
-    </footer>
-
-    <script type="module" src="js/script.js"></script>
+    <div class="login-modal" id="loginModal">
+        <div class="login-content">
+            <h3>Hoş Geldiniz</h3>
+            <p>Lütfen adınızı girin</p>
+            <input type="text" id="nameInput" placeholder="Adınız" maxlength="30" />
+            <button onclick="submitName()">Katıl</button>
+        </div>
+    </div>
+    <script src="js/script.js" async></script>
 </body>
 </html>
